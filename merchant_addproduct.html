@@ -25,16 +25,18 @@ function submitToAPI(e){
 			
 	   var offername = $("#name-input").val();
 	   var id ="id1";
-            var data = {
+            var data1 = {
              'offername': offername,
              'id': id
              };
             
              alert("inside call");
             ajax(
-                httpMethod,
-                "https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
-                data,
+                type: "POST",
+                url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
+                dataType: "json",
+		contentType: "application/json,
+		data: JSON.stringify(data1),
                 function(){
                     alert("Message sent!");
                 }
