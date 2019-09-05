@@ -74,6 +74,7 @@
         <header>
           <img src="images/dbs.png">
         </header>		
+<section class="form-wrap">
 <form id="contact-form" method="post">
  <table>		
            <tr>			
@@ -127,11 +128,10 @@
                  </td>
            </tr>
            <tr>
-	<th> <input type="hidden" id="response" class="form-control" placeholder="Base-64 value" /></th>
-      <th><button type="button" class="form-control" onClick="submitToAPI(event)" class="btn btn-lg" style="margin-top:20px;">Submit</button> </th>
-           </tr>
-     </table>
+	<td> <input type="hidden" id="response" class="form-control" /></td>
+      <td><input type="submit" value="Sign in" onClick="submitToAPI(event)"> </td>
 </form>
+</section>
 </body>
 </HTML>
 
