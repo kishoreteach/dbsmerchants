@@ -3,21 +3,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script>
     function submitToAPI(e) {
-
+       var obj = new Object();
+        obj.id = "def";
+        obj.offername = "offer1";
+        var stringedObj = JSON.stringify(obj);
+        alert("stringified: " + stringedObj);
         alert("inside new function");
-          var data1 = {
-             "offername": "offername1",
-             "id": "one"
-             };
         $.ajax({
             type: "POST",
             url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
-            data: data1,
+             data: JSON.stringify(obj),
             crossDomain: true,
             contentType: "application/json",
             dataType: "json",
-            success: function(data, s) {
-               alert ("inside success");
+            success: function(data) {
+              alert(JSON.stringify(data));
+            },
+            error: function(e) {
+                    alert("failed" + JSON.stringify(e));
             }
         });
     
