@@ -19,8 +19,32 @@
             });
         });
 		
+
+
+function submitToAPI1(e){
+			
+	   var offername = $("#name-input").val();
+	   var id ="id1";
+            var data = {
+             'offername': offername,
+             'id': id
+             };
+            
+            ajax(
+                httpMethod,
+                "https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
+                data,
+                function(){
+                    alert("Message sent!");
+                }
+            )
+}  
+
+
+
+
   
-   function submitToAPI(e) {
+   function submitToAPI1(e) {
        cription-inputpreventDefault();
        var merchantname = merchantname;
        var URL = "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact";	
@@ -34,6 +58,7 @@
        var shopLocation = $("#description-location").val();
        var descdays = $("#description-days").val();
        var id         =  merchantname+new Date().getUTCMilliseconds();
+       alert('before call');
        var data = {
 	      id:id,
           offername : offername,
@@ -64,6 +89,8 @@
            alert("UnSuccessfull");
          }});
      }
+
+
    </script>
 
         <link rel="stylesheet" href="css/font.css">
