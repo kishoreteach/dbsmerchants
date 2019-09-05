@@ -2,50 +2,9 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script>
-       
-        $(document).ready(function() {
-            $("#file-input").change(function() {
-                var filesSelected = document.getElementById("file-input").files;
-                if (filesSelected.length > 0) {
-                    var fileToLoad = filesSelected[0];
-                    var fileReader = new FileReader();
-                    fileReader.onload = function(fileLoadedEvent) {
-                        var base64value = fileLoadedEvent.target.result;
-                        alert(base64value);
-                        $("#response").val(base64value);
-                    };
-                    fileReader.readAsDataURL(fileToLoad);
-                }
-            });
-        });
-		
-
-
-function submitToAPI2(e){
-			
-	   var offername = $("#name-input").val();
-	   var id ="id1";
-            var data1 = {
-             "offername": "offername1",
-             "id": 1003
-             };
-            
-             alert("inside call");
-            ajax(
-                type: "POST",
-                url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
-                dataType: "json",
-		contentType: "application/json,
-		data: JSON.stringify(data1),
-                function(){
-                    alert("Message sent!");
-                }
-            )
-}  
-
     function submitToAPI(e) {
 
-        alert("inside new function")
+        alert("inside new function");
           var data1 = {
              "offername": "offername1",
              "id": "one"
@@ -63,56 +22,6 @@ function submitToAPI2(e){
         });
     
    }
-
-
-  
-   function submitToAPI1(e) {
-       cription-inputpreventDefault();
-       var merchantname = merchantname;
-       var URL = "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact";	
-       var selectedfile = document.getElementById("file-input").files;
-       var imageFile = selectedfile[0];	   
-       var offername = $("#name-input").val();
-       var offerdesc = $("#description-input").val();
-       var offerprod = $("#offerprod").val();
-       var offerprice = $("#price-input").val();
-       var base64Imagevalue = $("#response").val();
-       var shopLocation = $("#description-location").val();
-       var descdays = $("#description-days").val();
-       var id         =  merchantname+new Date().getUTCMilliseconds();
-       alert('before call');
-       var data = {
-	      id:id,
-          offername : offername,
-          offerdesc : offerdesc,
-          offerprod : offerprod,
-          offerprice : offerprice,
-          base64Imagevalue : base64Imagevalue,
-          shopLocation:shopLocation,
-          descdays:descdays,
-           merchantname: merchantname
-        };
-
-       $.ajax({
-         type: "POST",
-	 url : "https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
-         dataType: "json",
-         crossDomain: "true",
-         contentType: "application/json; charset=utf-8",
-         data: JSON.stringify(data),                 
-         success: function () {
-           // clear form and show a success message
-           alert("Successfull");
-           document.getElementById("contact-form").reset();
-       location.reload();
-         },
-         error: function () {
-           // show an error message
-           alert("UnSuccessfull");
-         }});
-     }
-
-
    </script>
 
         <link rel="stylesheet" href="css/font.css">
