@@ -21,28 +21,29 @@
 		
   
    function submitToAPI(e) {
-
-	   e.preventDefault();
+       cription-inputpreventDefault();
+       var merchantname = merchantname;
        var URL = "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact";	
-	   var selectedfile = document.getElementById("file-input").files;
-	   var imageFile = selectedfile[0];	   
+       var selectedfile = document.getElementById("file-input").files;
+       var imageFile = selectedfile[0];	   
        var offername = $("#name-input").val();
-	   alert("offername"+offername);
-       var offerdesc = $("#offerdesc").val();
+       var offerdesc = $("#description-input").val();
        var offerprod = $("#offerprod").val();
-       var offerprice = $("#offerprice").val();
-	   var base64value = $("#response").val();
-       var merchantname = $("#merchant-name").val();
-	   var id         =  merchantname+new Date().getUTCMilliseconds();
-	   alert(id);
+       var offerprice = $("#price-input").val();
+       var base64Imagevalue = $("#response").val();
+       var shopLocation = $("#description-location").val();
+       var descdays = $("#description-days").val();
+       var id         =  merchantname+new Date().getUTCMilliseconds();
        var data = {
-	      id        :id,
+	      id:id,
           offername : offername,
           offerdesc : offerdesc,
           offerprod : offerprod,
           offerprice : offerprice,
-		  base64value : base64value,
-		  merchantname: merchantname
+          base64Imagevalue : base64Imagevalue,
+          shopLocation:shopLocation,
+          descdays:descdays,
+           merchantname: merchantname
         };
 
        $.ajax({
