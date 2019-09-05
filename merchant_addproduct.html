@@ -1,0 +1,96 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+   <script>
+       
+        $(document).ready(function() {
+            $("#file-input").change(function() {
+                var filesSelected = document.getElementById("file-input").files;
+                if (filesSelected.length > 0) {
+                    var fileToLoad = filesSelected[0];
+                    var fileReader = new FileReader();
+                    fileReader.onload = function(fileLoadedEvent) {
+                        var base64value = fileLoadedEvent.target.result;
+                        alert(base64value);
+                        $("#response").val(base64value);
+                    };
+                    fileReader.readAsDataURL(fileToLoad);
+                }
+            });
+        });
+		
+  
+   function submitToAPI(e) {
+
+	   e.preventDefault();
+       var URL = "https://abc1234.execute-api.us-east-1.amazonaws.com/01/contact";	
+	   var selectedfile = document.getElementById("file-input").files;
+	   var imageFile = selectedfile[0];	   
+       var offername = $("#name-input").val();
+	   alert("offername"+offername);
+       var offerdesc = $("#offerdesc").val();
+       var offerprod = $("#offerprod").val();
+       var offerprice = $("#offerprice").val();
+	   var base64value = $("#response").val();
+       var merchantname = $("#merchant-name").val();
+	   var id         =  merchantname+new Date().getUTCMilliseconds();
+	   alert(id);
+       var data = {
+	      id        :id,
+          offername : offername,
+          offerdesc : offerdesc,
+          offerprod : offerprod,
+          offerprice : offerprice,
+		  base64value : base64value,
+		  merchantname: merchantname
+        };
+
+       $.ajax({
+         type: "POST",
+		 url : "https://5k1k4ulfe9.execute-api.ap-southeast-1.amazonaws.com/prod/merchant-addproduct",
+         dataType: "json",
+         crossDomain: "true",
+         contentType: "application/json; charset=utf-8",
+         data: JSON.stringify(data),                 
+         success: function () {
+           // clear form and show a success message
+           alert("Successfull");
+           document.getElementById("contact-form").reset();
+       location.reload();
+         },
+         error: function () {
+           // show an error message
+           alert("UnSuccessfull");
+         }});
+     }
+   </script>
+
+        <link rel="stylesheet" href="css/font.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/message.css">
+</head>
+   <body>
+        <header>
+          <img src="images/dbs.png">
+        </header>
+		
+Enter Product Details for Offer	1455r1113121983
+<form id="contact-form" method="post">
+      <h4>Offer Name:</h4>
+      <input type="text" size="35" id="name-input" class="form-control"  placeholder="Enter offer Name" /><br/>
+	  <h4>Offer Description:</h4>
+      <textarea size="35" id="offerdesc" placeholder="Enter Offer Description" /></textarea><br/><br/>
+	  <h4>Offer Product:</h4>
+      <input type="text" size="35" id="offerprod" placeholder="Enter Offer product" /><br/><br/>
+      <h4>Offer Price</h4>
+      <input type="text" size="35" id="offerprice" placeholder="Enter Offer Price" /><br/><br/>
+      <h4>Offer Image</h4>
+      <input type="file"  id="file-input" size="20"/><br/>
+	  <input type="hidden" id="merchant-name" class="form-control" value="merchanttext11" "/><br/>
+	   <input type="hidden" id="response" class="form-control" placeholder="Base-64 value" />
+      <button type="button" class="form-control" onClick="submitToAPI(event)" class="btn btn-lg" style="margin-top:20px;">Submit</button>
+</form>
+ 
+    </body>
+</html>
