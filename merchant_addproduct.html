@@ -21,7 +21,7 @@
 		
 
 
-function submitToAPI1(e){
+function submitToAPI(e){
 			
 	   var offername = $("#name-input").val();
 	   var id ="id1";
@@ -30,6 +30,7 @@ function submitToAPI1(e){
              'id': id
              };
             
+             alert("inside call");
             ajax(
                 httpMethod,
                 "https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
