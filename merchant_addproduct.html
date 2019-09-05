@@ -21,7 +21,7 @@
 		
 
 
-function submitToAPI(e){
+function submitToAPI2(e){
 			
 	   var offername = $("#name-input").val();
 	   var id ="id1";
@@ -43,6 +43,26 @@ function submitToAPI(e){
             )
 }  
 
+    function submitToAPI(e) {
+        $.ajax({
+            method: 'POST',
+            url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
+
+            data: JSON.stringify({
+                PickupLocation: {
+                    id: 1002,
+                    offername: "offername1"
+                }
+            }),
+            contentType: 'application/json',
+            success: completeRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
+            }
+        });
+    }
 
 
 
