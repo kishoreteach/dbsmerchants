@@ -73,24 +73,66 @@
    <body>
         <header>
           <img src="images/dbs.png">
-        </header>
-		
-Enter Product Details for Offer	1455r1113121983
+        </header>		
 <form id="contact-form" method="post">
-      <h4>Offer Name:</h4>
-      <input type="text" size="35" id="name-input" class="form-control"  placeholder="Enter offer Name" /><br/>
-	  <h4>Offer Description:</h4>
-      <textarea size="35" id="offerdesc" placeholder="Enter Offer Description" /></textarea><br/><br/>
-	  <h4>Offer Product:</h4>
-      <input type="text" size="35" id="offerprod" placeholder="Enter Offer product" /><br/><br/>
-      <h4>Offer Price</h4>
-      <input type="text" size="35" id="offerprice" placeholder="Enter Offer Price" /><br/><br/>
-      <h4>Offer Image</h4>
-      <input type="file"  id="file-input" size="20"/><br/>
-	  <input type="hidden" id="merchant-name" class="form-control" value="merchanttext11" "/><br/>
-	   <input type="hidden" id="response" class="form-control" placeholder="Base-64 value" />
-      <button type="button" class="form-control" onClick="submitToAPI(event)" class="btn btn-lg" style="margin-top:20px;">Submit</button>
+ <table>		
+           <tr>			
+               <td>				
+                   Offer Name::			
+               </td>			
+                <td>				
+                   <input type="text" size="35" id="name-input" class="form-control"  placeholder="Enter offer Name" />  
+                </td>		
+           </tr>
+            <tr>
+                 <td>				
+                    Offer Description
+                 </td>			
+                 <td>				
+                  <input type="text" size="35" id="description-input" class="form-control"  placeholder="Enter offer Description" />
+                 </td>		
+           </tr>	
+               <tr>
+                 <td>                           
+                    Offer Price
+                 </td>                  
+                 <td>                           
+                  <input type="text" size="35" id="price-input" class="form-control"  placeholder="Enter Price" />
+                 </td>
+           </tr>
+                         <tr>
+                 <td>
+                    Offer Image
+                 </td>                  
+                 <td>     
+                  <input type="file" id="file-input"/>
+                 </td>
+           </tr>
+                   </tr>
+                         <tr>
+                 <td>
+                    Shop Location
+                 </td>                  
+                 <td>     
+                  <input type="text" size="35" id="description-location" class="form-control"  placeholder="Enter Location" />
+                 </td>
+           </tr> 
+
+                   <tr>
+                 <td>
+                    Shop validity
+                 </td>
+                 <td>
+                  <input type="text" size="35" id="description-days" class="form-control"  placeholder="Enter Days of validity" />
+                 </td>
+           </tr>
+           <tr>
+	<th> <input type="hidden" id="response" class="form-control" placeholder="Base-64 value" /></th>
+      <th><button type="button" class="form-control" onClick="submitToAPI(event)" class="btn btn-lg" style="margin-top:20px;">Submit</button> </th>
+           </tr>
+     </table>
 </form>
- 
-    </body>
-</html>
+</body>
+</HTML>
+
+
