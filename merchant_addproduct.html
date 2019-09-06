@@ -20,7 +20,8 @@
 
     function submitToAPI(e) {
         var obj = new Object();
-        obj.id = "id001" ;
+		var timestamp = new Date().getUTCMilliseconds();
+        obj.id = "merchant1" +timestamp;
         obj.offername = $("#name-input").val();
         obj.description =  $("#description-input").val();
         obj.price =$("#price-input").val();
