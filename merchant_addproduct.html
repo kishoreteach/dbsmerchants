@@ -27,7 +27,8 @@
         obj.loca =$("#description-location").val();
         obj.days =$("#description-days").val();
 		image1 = $("#response").val();
-        obj.imagebase64 =image1.substring(20,image1-1); 		
+		leng = image1.length
+        obj.imagebase64 =image1.substring(20,leng-1); 		
         var stringedObj = JSON.stringify(obj);
         alert("inside function");
         alert(JSON.stringify(obj));
