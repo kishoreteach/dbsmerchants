@@ -28,7 +28,7 @@
         obj.days =$("description-days").val();               
         var stringedObj = JSON.stringify(obj);
         alert("inside function");
-        alert(JSON.stringify(data));
+        alert(JSON.stringify(obj));
         $.ajax({
             type: "POST",
             url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
