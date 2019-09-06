@@ -29,7 +29,7 @@
 		image1 = $("#response").val();
 		leng = image1.length
 		var n = image1.indexOf(",");
-        obj.imagebase64 =image1.substring(n+1,leng-1); 		
+        obj.imagebase64 =image1.substring(n+1,leng); 		
         var stringedObj = JSON.stringify(obj);
         alert("inside function");
         alert(JSON.stringify(obj));
