@@ -19,13 +19,14 @@
         });
 
     function submitToAPI(e) {
-        var obj = new Object(id,offername,description,price,loca,days);
+        var obj = new Object();
         obj.id = "id001" ;
         obj.offername = $("#name-input").val();
-        obj.description =  $("description-input").val();
-        obj.price =$("price-input").val();
-        obj.loca =$("description-location").val();
-        obj.days =$("description-days").val();               
+        obj.description =  $("#description-input").val();
+        obj.price =$("#price-input").val();
+        obj.loca =$("#description-location").val();
+        obj.days =$("#description-days").val(); 
+        obj.imagebase64 =$("#response").val(); 		
         var stringedObj = JSON.stringify(obj);
         alert("inside function");
         alert(JSON.stringify(obj));
