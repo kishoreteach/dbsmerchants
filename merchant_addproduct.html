@@ -20,17 +20,15 @@
 
     function submitToAPI(e) {
         var obj = new Object();
-        obj.id =new Date().getUTCMilliseconds() ;
+        obj.id = "id001" ;
         obj.offername = $("#name-input").val();
         obj.description =  $("description-input").val();
         obj.price =$("price-input").val();
         obj.loc =$("description-location").val();
         obj.days =$("description-days").val();
-        obj.imagebase64 =$("#response").val();
-               
+        obj.imagebase64 =$("#response").val();               
         var stringedObj = JSON.stringify(obj);
-        alert("stringified: " + stringedObj);
-        alert("inside new function");
+        alert (stringedOb()
         $.ajax({
             type: "POST",
             url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
