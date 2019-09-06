@@ -2,10 +2,32 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
    <script>
+    $(document).ready(function() {
+            $("#file-input").change(function() {
+                var filesSelected = document.getElementById("file-input").files;
+                if (filesSelected.length > 0) {
+                    var fileToLoad = filesSelected[0];
+                    var fileReader = new FileReader();
+                    fileReader.onload = function(fileLoadedEvent) {
+                        var base64value = fileLoadedEvent.target.result;
+                        alert(base64value);
+                        $("#response").val(base64value);
+                    };
+                    fileReader.readAsDataURL(fileToLoad);
+                }
+            });
+        });
+
     function submitToAPI(e) {
-       var obj = new Object();
-        obj.id = "ghi";
-        obj.offername = "offer1";
+        var obj = new Object();
+        obj.id =new Date().getUTCMilliseconds() ;
+        obj.offername = $("#name-input").val();
+        obj.description =  $("description-input").val();
+        obj.price =$("price-input").val();
+        obj.loc =$("description-location").val();
+        obj.days =$("description-days").val();
+        obj.imagebase64 =$("#response").val();
+               
         var stringedObj = JSON.stringify(obj);
         alert("stringified: " + stringedObj);
         alert("inside new function");
