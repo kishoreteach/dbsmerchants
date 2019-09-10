@@ -42,7 +42,7 @@
             contentType: "application/json",
             dataType: "json",
             success: function(data) {
-              alert(JSON.stringify(data));
+              window.location.href = 'merchant_successsubmit.html';
             },
             error: function(e) {
                     alert("failed" + JSON.stringify(e));
