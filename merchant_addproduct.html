@@ -10,7 +10,7 @@
                     var fileReader = new FileReader();
                     fileReader.onload = function(fileLoadedEvent) {
                         var base64value = fileLoadedEvent.target.result;
-                        alert(base64value);
+                        //alert(base64value);
                         $("#response").val(base64value);
                     };
                     fileReader.readAsDataURL(fileToLoad);
@@ -32,8 +32,8 @@
 		var n = image1.indexOf(",");
         obj.imagebase64 =image1.substring(n+1,leng); 		
         var stringedObj = JSON.stringify(obj);
-        alert("inside function");
-        alert(JSON.stringify(obj));
+        //alert("inside function");
+        //alert(JSON.stringify(obj));
         $.ajax({
             type: "POST",
             url:"https://2g0lvlmqae.execute-api.ap-southeast-1.amazonaws.com/dev/merchantsubmit",
@@ -45,7 +45,7 @@
               window.location.href = 'merchant_successsubmit.html';
             },
             error: function(e) {
-                    alert("failed" + JSON.stringify(e));
+                    //alert("failed" + JSON.stringify(e));
             }
         });
     
